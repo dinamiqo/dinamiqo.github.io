@@ -530,7 +530,7 @@
             _tip = '尝试连接 Disqus……';
 
             var s = d.createElement('script');
-            s.src = 'https://'+_.opts.forum+'.disqus.com/embed.js';
+            s.src = '//'+_.opts.forum+'.disqus.com/embed.js';
             s.dataset.timestamp = Date.now();
             s.onload = function(){
                 _.stat.disqusLoaded = true;
