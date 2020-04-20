@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Christian Alvarado Blog</title>
+    <link>https://dinamiqo.github.io/post/</link>
+    <description>Recent content in Posts on Christian Alvarado Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-mx</language>
+    <lastBuildDate>Sat, 18 Apr 2020 21:40:28 -0500</lastBuildDate>
+    
+	<atom:link href="https://dinamiqo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Configuración DDNS</title>
+      <link>https://dinamiqo.github.io/post/configuracion-ddns/</link>
+      <pubDate>Sat, 18 Apr 2020 21:40:28 -0500</pubDate>
+      
+      <guid>https://dinamiqo.github.io/post/configuracion-ddns/</guid>
+      <description>Hola a todos.
+asdasd
+hola
+En esto veremos alguna configuracion de ddns y explicaremos primero que es lo que tenemos</description>
+    </item>
+    
+    <item>
+      <title>Tabla Responsive con solo CSS</title>
+      <link>https://dinamiqo.github.io/post/cuatro/</link>
+      <pubDate>Mon, 03 Oct 2016 02:09:48 -0500</pubDate>
+      
+      <guid>https://dinamiqo.github.io/post/cuatro/</guid>
+      <description>Ahora, a hacer el &amp;lt;strong&amp;gt;CSS&amp;lt;/strong&amp;gt;. Aquí haremos uso de los &amp;lt;strong&amp;gt;@media&amp;lt;/strong&amp;gt; de &amp;lt;strong&amp;gt;CSS&amp;lt;/strong&amp;gt;. Estos elementos nos ayudarán a diseñar los estilos adecuados para cada resolución en el que se cargue nuestro sitio. Por ejemplo, si nuestro sitio está siendo cargado en una pantalla la cual es grande, necesitaremos usar el layout A para visualizar de manera cómoda la tabla. En cambio, si es una pantalla pequeña; será necesario usar el layout B, el cual no ocupa el mismo espacio.</description>
+    </item>
+    
+    <item>
+      <title>Cómo hacer un icono para indicar notificaciones</title>
+      <link>https://dinamiqo.github.io/post/tres/</link>
+      <pubDate>Sat, 01 Oct 2016 19:42:10 -0500</pubDate>
+      
+      <guid>https://dinamiqo.github.io/post/tres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>El emprendimiento apesta poquito, pero es algo que necesitamos.</title>
+      <link>https://dinamiqo.github.io/post/dos/</link>
+      <pubDate>Sat, 01 Oct 2016 18:29:45 -0500</pubDate>
+      
+      <guid>https://dinamiqo.github.io/post/dos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introducción a Express JS</title>
+      <link>https://dinamiqo.github.io/post/uno/</link>
+      <pubDate>Sat, 01 Oct 2016 01:00:55 -0500</pubDate>
+      
+      <guid>https://dinamiqo.github.io/post/uno/</guid>
+      <description>Hola, esta es mi primer entrada. Espero que te sirva, de ser así espero sigas al pendiente de mis publicaciones en las cuales estaré publicando más sobre este tema. Bien, empecemos:
+Sin importar el perfil que tengas, no faltará la ocasion en la cual tengas que lidiar con subir una pagina web a internet para mostrar algun servicio, producto o simplemente querer darte a conocer en este medio tan hermoso. Hay muchas opciones de generadores de sitios para montar el nuestro, pero en mi humilde opinion creo que es mejor aprender a desarrollar proyectos web por nuestra propia cuenta.</description>
+    </item>
+    
+  </channel>
+</rss>

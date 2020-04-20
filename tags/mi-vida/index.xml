@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mi vida on Christian Alvarado Blog</title>
+    <link>https://dinamiqo.github.io/tags/mi-vida/</link>
+    <description>Recent content in mi vida on Christian Alvarado Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-mx</language>
+    <lastBuildDate>Sat, 01 Oct 2016 18:29:45 -0500</lastBuildDate>
+    
+	<atom:link href="https://dinamiqo.github.io/tags/mi-vida/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>El emprendimiento apesta poquito, pero es algo que necesitamos.</title>
+      <link>https://dinamiqo.github.io/post/dos/</link>
+      <pubDate>Sat, 01 Oct 2016 18:29:45 -0500</pubDate>
+      
+      <guid>https://dinamiqo.github.io/post/dos/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

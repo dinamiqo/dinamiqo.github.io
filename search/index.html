@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es-mx">
 <head>
-	<meta name="generator" content="Hugo 0.68.3" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,9 +34,9 @@
     <meta name="keyword"  content="Python, Web, Database, Javascript, PHP, Asterisk, Linux">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Christian Alvarado Blog-Christian Alvarado | Blog</title>
+    <title>Searches-Christian Alvarado | Blog</title>
 
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="/search/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -177,7 +176,6 @@
 
 
 
-  
 <div class="container">
     <div class="row">
         
@@ -190,119 +188,113 @@
             post-container
         ">
             
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
 
-<div class="post-preview">
-    <a href="https://dinamiqo.github.io/post/configuracion-ddns/">
-        <h2 class="post-title">
-            Configuración DDNS
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Hola a todos.
-asdasd
-hola
-En esto veremos alguna configuracion de ddns y explicaremos primero que es lo que tenemos
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    Publicado por Christian Alvarado Blog Saturday, April 18, 2020
-    
-    
-    </p>
+<div id="search-searchbar"></div>
+ <div class="post-list" id="search-hits">
+ </div>
 
-</div>
-<hr>
+<script>
+const search = instantsearch({
+  appId: '',
+  indexName: '',
+  apiKey: ''
+});
 
-<div class="post-preview">
-    <a href="https://dinamiqo.github.io/post/cuatro/">
-        <h2 class="post-title">
-            Tabla Responsive con solo CSS
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Una manera de hacer tablas responsivas con solo CSS.
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Publicado por Christian Alvarado Blog Monday, October 3, 2016
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://dinamiqo.github.io/post/tres/">
-        <h2 class="post-title">
-            Cómo hacer un icono para indicar notificaciones
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Utilizando CSS veremos cómo hacer esto
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Publicado por Christian Alvarado Blog Saturday, October 1, 2016
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://dinamiqo.github.io/post/dos/">
-        <h2 class="post-title">
-            El emprendimiento apesta poquito, pero es algo que necesitamos.
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Razones por las cuales más personas debemos emprender.
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Publicado por Christian Alvarado Blog Saturday, October 1, 2016
-    
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://dinamiqo.github.io/post/uno/">
-        <h2 class="post-title">
-            Introducción a Express JS
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Primer entrada sobre Express JS el framework de desarrollo web más importante de javascript.
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    Publicado por Christian Alvarado Blog Saturday, October 1, 2016
-    
-    
-    </p>
-
-</div>
-<hr>
+const hitTemplate = function(hit) {
 
 
-            
+  let date = '';
+  if (hit.date) {
+    date = moment.unix(hit.date).format('MMM D, YYYY');
+  }
+  let url = `${hit.url}#${hit.anchor}`;
+  const title = hit._highlightResult.title.value;
+
+  let breadcrumbs = '';
+  if (hit._highlightResult.headings) {
+    breadcrumbs = hit._highlightResult.headings.map(match => {
+      return `<span class="post-breadcrumb">${match.value}</span>`
+    }).join(' > ')
+  }
+
+  let content = "" ; 
+  if (hit._highlightResult.content){
+      content = hit._highlightResult.content.value;
+  }
+  else{
+      content = hit.summary;
+  }
 
 
+  return `
+    <div class="post-item">
+      <span class="post-meta">${date}</span>
+      <h2><a class="post-link" href="${url}">${title}</a></h2>
+      <a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>
+      <div class="post-snippet">${content}</div>
+    </div>
+  `;
+}
+
+
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-searchbar',
+    placeholder: 'Search into posts...',
+    poweredBy: true // This is required if you're on the free Community plan
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#search-hits',
+    templates: {
+      item: hitTemplate
+    }
+  })
+);
+
+search.start();
+</script>
+
+<style>
+.ais-search-box {
+  max-width: 100%;
+  margin-bottom: 15px;
+}
+.post-item {
+  margin-bottom: 30px;
+}
+.post-link .ais-Highlight {
+  color: #111;
+  font-style: normal;
+  text-decoration: underline;
+}
+.post-breadcrumbs {
+  color: #424242;
+  display: block;
+}
+.post-breadcrumb {
+  font-size: 18px;
+  color: #424242;
+}
+.post-breadcrumb .ais-Highlight {
+  font-weight: bold;
+  font-style: normal;
+}
+.post-snippet .ais-Highlight {
+  color: #2a7ae2;
+  font-style: normal;
+  font-weight: bold;
+}
+.post-snippet img {
+  display: none;
+}
+</style>
 
        	</div>
         
@@ -334,7 +326,7 @@ En esto veremos alguna configuracion de ddns y explicaremos primero que es lo qu
            <ul class="list-inline"> 
                
                <li>
-                   <a href='/index.xml' rel="alternate" type="application/rss+xml" title="Christian Alvarado Blog" >
+                   <a href='/search/index.xml' rel="alternate" type="application/rss+xml" title="Christian Alvarado Blog" >
                        <span class="fa-stack fa-lg">
                            <i class="fa fa-circle fa-stack-2x"></i>
                            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -393,8 +385,6 @@ En esto veremos alguna configuracion de ddns y explicaremos primero que es lo qu
 
 
 
-
-
 <footer>
     <div class="container">
         <div class="row">
@@ -402,7 +392,7 @@ En esto veremos alguna configuracion de ddns y explicaremos primero que es lo qu
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href='/index.xml' rel="alternate" type="application/rss+xml" title="Christian Alvarado Blog" >
+                       <a href='/search/index.xml' rel="alternate" type="application/rss+xml" title="Christian Alvarado Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fa fa-circle fa-stack-2x"></i>
                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
