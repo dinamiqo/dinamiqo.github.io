@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Introducción a Express" />
+    <meta property="og:title" content="Introducción a Express" />
+    <meta property="twitter:title" content="Introducción a Express" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="Python, Web, Database, Javascript, PHP, Asterisk, Linux">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Posts-Christian Alvarado | Blog</title>
+    <title>Introducción a Express-Christian Alvarado | Blog</title>
 
-    <link rel="canonical" href="/post/">
+    <link rel="canonical" href="/post/express-1/">
 
     <link rel="stylesheet" href="/css/iDisqus.min.css"/>
 	
@@ -160,14 +160,33 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/back.png')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/back.png')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Christian Alvarado Blog </h1>
-                    
-		    <span class="subheading">Blog de un sysadmin</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Introducción a Express</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Publicado por 
+                        
+                                Christian Alvarado Blog
+                         
+                        on 
+                        Monday, April 20, 2020
+                        
+                        
+                        
+                    </span>
                 </div>
             </div>
         </div>
@@ -180,13 +199,66 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-11 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents"></nav>
+                
+                <p>Hola, esta es mi primer entrada. Espero que te sirva, de ser así espero sigas al pendiente de mis publicaciones en las cuales estaré publicando más sobre este tema. Bien, empecemos:</p>
+<p>Sin importar el perfil que tengas, no faltará la ocasion en la cual tengas que lidiar con subir una pagina web a internet para mostrar algun servicio, producto o simplemente querer darte a conocer en este medio tan hermoso. Hay muchas opciones de generadores de sitios para montar el nuestro, pero en mi humilde opinion creo que es mejor aprender a desarrollar proyectos web por nuestra propia cuenta. Asi que empezaré una serie de entradas en las cuales te mostraré como crear el tuyo y al final subirlo a un servidor de prueba. Te hablaré de express.</p>
+<p>Express JS es un framework de desarrollo web basado en el motor de eventos llamado Node JS. en la practica, es muy simple montar proyectos con este framework y ademas de esto, es seguro, ordenado y rapido. Al seguir la ideologia de javascript, nos da la posibilidad de, como usuarios, utilizar tan solo las dependencias que nosotros necesitemos, gestionar eventos, rutas, vistas y nuestra programación de una manera muy eficaz. Así que empecemos a ver como es que se instala y procederemos a crear nuestro primer proyecto.</p>
+<p>Primero necesitaremos instalar Node JS, el cual podras descargar desde el siguiente enlace. Independiente del sistema operativo con el que cuentes, el proceso de instalación es bastante sencillo.</p>
+<p>Una vez concluido la instalación, podemos empezar. Si has programado cosas en PHP recordaras que para empezar tu proyecto tenias que situar tu codigo en la carpeta de www o en algo así. Pues, en el caso de Node, basta con tenerlo instalado en nuestro equipo y podremos ejecutar el codigo de javascript (o en este caso puntual, el de express) desde cualquier ruta de nuestro sistema. Entonces, crearemos una carpeta en algun lugar de nuestro sistema y ya dentro de ella empezaremos. Necesitamos indicar que en esta carpeta se encuentra un proyecto que será gestionado por Node, para lo cual debemos abrir una consola en la ruta indicada e indicar el siguiente comando:</p>
+<pre><code>&gt; npm init
+</code></pre>
+<p>Al darle enter nos preguntar algunas cosas sobre la información del nuevo proyecto. Aquí te dejo una captura de como quedo mi archivo.</p>
+<pre><code>{
+    &quot;name&quot;: &quot;ejemplo&quot;,
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;description&quot;: &quot;proyecto de prueba&quot;,
+    &quot;main&quot;: &quot;index.js&quot;,
+    &quot;scripts&quot;: {
+        &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+    },
+    &quot;author&quot;: &quot;dinamiqo&quot;,
+    &quot;license&quot;: &quot;ISC&quot;
+}
+</code></pre>
+<p>Ahora, tenemos que agregar las dependencias con las que estaremos trabajando. En este caso solo necesitamos una, la cual es Express y para instalarla usaremos el siguiente comando desde la consola:</p>
+<pre><code>&gt; npm install express -S
+</code></pre>
+<p>Esto nos creará una carpeta llamada node_modules en la cual habrá una carpeta llamada express. Bien, con esto podemos continuar. Crearemos en la raiz de nuestra proyecto (a la altura de package.json) un archivo llamado index.js(Esto lo hago así, ya que en la creación de mi archivo package.json indique que el archivo de entrada se debia llamar así). Una vez creado, pondre lo siguiente:</p>
+<pre><code>var express = require('express');
+var app = express();
+    app.get('/', function (req, res) {
+    res.send('Hola desde express!');
+});
+app.listen(3000, function () {
+    console.log('Estamos en: http://127.0.0.1:3000');
+});
+</code></pre>
+<p>Si todo está bien, ahora solo nos queda ejecutar nuestro proyecto y ver el resultado en el navegador. Para esto, vamos de nuevo a nuestra consola y ahora introducimos el siguiente comando:</p>
+<pre><code>&gt; node index.js
+</code></pre>
+<p>Y ahora solo queda ver en nuestro navegador en la URL que se nos indica. Como ven, la instalación, configuracion y lanzamiento de nuestro codigo no fue dificil. En los siguientes tutoriales, les enseñaré a como agregar rutas, archivos estaticos, conectar con una base de datos y demas. Si tienes alguna duda o quieres dejar un comentario, me ayudaría bastante. Gracias y hasta la proxima.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+
                 
 <div id="disqus-comment"></div>
 
@@ -216,7 +288,7 @@
             </div>
             
             <div class="
-                col-lg-8 col-lg-offset-2
+                col-lg-11 col-lg-offset-1
                 col-md-10 col-md-offset-1
                 sidebar-container">
 
@@ -240,7 +312,7 @@
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href='/post/index.xml' rel="alternate" type="application/rss+xml" title="Christian Alvarado Blog" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="Christian Alvarado Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fa fa-circle fa-stack-2x"></i>
                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
